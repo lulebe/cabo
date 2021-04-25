@@ -1,0 +1,13 @@
+.game-header-remote {
+  height: 64px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  z-index: 1;
+  background-color: $primary-color;
+  color: white;
+  padding-top: 20px;
+  h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+  }
+}

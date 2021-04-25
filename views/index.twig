@@ -1,0 +1,69 @@
+{% extends "layout.twig" %}
+
+{% block title %}Start{% endblock %}
+
+{% block styles %}
+.centered {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 50px rgba(0,0,0,0.3);
+}
+{% endblock %}
+
+{% block main %}
+<div class="centered">
+  <h1 class="center">Cabo</h1>
+  <p>
+    Cabo has a table with hidden cards and shows single cards to players at certain points.
+    Shown cards are displayed via a "remote", either your phone, or just a second tab. Others should not see it.
+    When playing remotely, players can additionally "join as main screen" on their PC/tablet to see the table.
+    <br>
+    <a href="http://www.smiling-monster.de/spiele/smg007/download/SMG-Cabo-EN.pdf">How to play</a>
+    <br>
+    If the game stops working for any reason, go back to the start page on all devices,
+    start a new game on the same device as before and join that with the same player names.
+    You can then reload your last game.
+  </p>
+  <fieldset>
+    <legend>Create game</legend>
+    <form method="POST" action="/main/create_game">
+      <p class="center">
+        Create a new game on this device (ideally a PC/tablet) and use other devices to join in: <br><br>
+        <button type="submit" class="big primary center">Create a new game!</button>
+      </p>
+    </form>
+  </fieldset>
+  <fieldset>
+    <legend>Join game as remote</legend>
+    <form method="POST" action="/remote/game">
+      <p class="center">
+        Join a game on this device (best on phone): <br><br>
+
+        <label>Game Name: <br>
+          <input type="text" name="game" />
+        </label><br><br>
+        <label>Your Name: <br>
+          <input type="text" name="username" />
+        </label>
+        
+        <br><br>
+        <button type="submit" class="big primary center">Join game!</button>
+      </p>
+    </form>
+  </fieldset>
+  <fieldset>
+    <legend>Join game as main screen</legend>
+    <form method="POST" action="/screen/game">
+      <p class="center">
+        Join a game on this device (ideally a PC/tablet):<br><br>
+
+        <label>Game Name: <br>
+          <input type="text" name="game" />
+        </label>
+        
+        <br><br>
+        <button type="submit" class="big primary center">Join game!</button>
+      </p>
+    </form>
+  </fieldset>
+</div>
+{% endblock %}
