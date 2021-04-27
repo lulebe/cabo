@@ -16,3 +16,10 @@ router.post('/start_game', (req, res) => {
     return res.status(400).send()
   twing.render('main/game.twig', {gameName: game.name, players: JSON.stringify(game.players.map(player => player.name))}).then(rendered => res.end(rendered))
 })
+
+router.get('/start_game', (req, res) => {
+  const game = games.getGame("TEST")
+  if (!game)
+    return res.status(400).send()
+  twing.render('main/game.twig', {gameName: game.name, players: JSON.stringify(game.players.map(player => player.name))}).then(rendered => res.end(rendered))
+})
